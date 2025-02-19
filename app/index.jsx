@@ -12,7 +12,9 @@ import '../global.css'
 const Welcome = () => {
   const { loading, isLogged } = useGlobalContext();
 
-  if (!loading && isLogged) return <Redirect href={'/home'} />;
+  if (!loading && isLogged){
+    return <Redirect href="/home" />    
+  } 
 
 
   return (
@@ -31,11 +33,11 @@ const Welcome = () => {
             resizeMode="contain"
           />
 
-          {/* <Image
-            source={images.cards}
+          <Image
+            source={images.delivery}
             style={{ maxWidth: 380, width: "100%", height: 298 }}
             resizeMode="contain"
-          /> */}
+          />
 
           <View style={{ position: "relative", marginTop: 20 }}>
             <Text style={{ fontSize: 24, color: "white", fontWeight: "bold", textAlign: "center" }}>
@@ -53,7 +55,7 @@ const Welcome = () => {
 
           <Text style={{ fontSize: 14, fontFamily: "Poppins-Regular", color: "#E0E0E0", marginTop: 28, textAlign: "center" }}>
             Where Creativity Meets Innovation: Embark on a Journey of Limitless
-            Exploration with Aora
+            Exploration with Pick & Drop
           </Text>
 
           <CustomButton

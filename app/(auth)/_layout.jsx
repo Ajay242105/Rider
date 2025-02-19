@@ -7,7 +7,10 @@ import Loader from "../../components/Loader";
 
 const AuthLayout = () => {
   const { loading, isLogged } = useGlobalContext();
-  if (!loading && isLogged) return <Redirect href='/home' />;
+  if (!loading && isLogged){
+    console.log(isLogged);
+    return <Redirect href='/home' />
+  } 
 
 
   return (
