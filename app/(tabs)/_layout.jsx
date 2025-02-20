@@ -1,148 +1,9 @@
-// import { StatusBar } from "expo-status-bar";
-// import { Redirect, Tabs } from "expo-router";
-// import { Image, Text, View } from "react-native";
-// import { useGlobalContext } from "../../context/GlobalProvider";
-// import { icons } from "../../constants";
-// import Loader from "../../components/Loader";
-
-
-
-// const TabIcon = ({ icon, color, name, focused }) => {
-//   return (
-//     <View className="flex items-center justify-center gap-2">
-//       <Image
-//         source={icon}
-//         resizeMode="contain"
-//         tintColor={color}
-//         className="w-4 h-4"
-//       />
-//       <Text
-//         className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
-//         style={{ color: color }}
-//       >
-//         {name}
-//       </Text>
-//     </View>
-//   );
-// };
-
-// const TabLayout = () => {
-//   const { loading, isLogged } = useGlobalContext();
-
-//   if (!loading && !isLogged) return <Redirect href="/sign-in" />;
-
-//   return (
-//     <>
-//       <Tabs
-//         screenOptions={{
-//           tabBarActiveTintColor: "blue",
-//           tabBarInactiveTintColor: "rgb(51, 51, 51)",
-//           tabBarShowLabel: false,
-//           tabBarStyle: {
-//             backgroundColor: "#white",
-//             borderTopWidth: 1,
-//             borderTopColor: "grey",
-//             height: 94,
-//           },
-//         }}
-//       >
-//         <Tabs.Screen
-//           name="home"
-//           options={{
-//             title: "Home",
-//             headerShown: false,
-//             tabBarIcon: ({ color, focused }) => (
-//               <TabIcon
-//                 icon={icons.home}
-//                 color={color}
-//                 name="Home"
-//                 focused={focused}
-//               />
-//             ),
-//           }}
-//         />
-//         <Tabs.Screen
-//           name="search"
-//           options={{
-//             title: "Search",
-//             headerShown: false,
-//             tabBarIcon: ({ color, focused }) => (
-//               <TabIcon
-//                 icon={icons.search}
-//                 color={color}
-//                 name="Bookmark"
-//                 focused={focused}
-//               />
-//             ),
-//           }}
-//         />
-
-//         <Tabs.Screen
-//           name="history"
-//           options={{
-//             title: "History",
-//             headerShown: false,
-//             tabBarIcon: ({ color, focused }) => (
-//               <TabIcon
-//                 icon={icons.plus}
-//                 color={color}
-//                 name="History"
-//                 focused={focused}
-//               />
-//             ),
-//           }}
-//         />
-//         <Tabs.Screen
-//           name="profile"
-//           options={{
-//             title: "Profile",
-//             headerShown: false,
-//             tabBarIcon: ({ color, focused }) => (
-//               <TabIcon
-//                 icon={icons.profile}
-//                 color={color}
-//                 name="Profile"
-//                 focused={focused}
-//               />
-//             ),
-//           }}
-//         />
-//       </Tabs>
-
-//       <Loader isLoading={loading} />
-//       <StatusBar backgroundColor="#161622" style="light" />
-//     </>
-//   );
-// };
-
-// export default TabLayout;
 import { StatusBar } from "expo-status-bar";
 import { Redirect, Tabs } from "expo-router";
-import { Image, Text, View } from "react-native";
 import { useGlobalContext } from "../../context/GlobalProvider";
-import { icons } from "../../constants";
 import Loader from "../../components/Loader";
-
-const TabIcon = ({ icon, color, name, focused }) => {
-  return (
-    <View className="flex items-center justify-center gap-1">
-      <View className={`${focused ? "bg-blue-100 p-2 rounded-full" : ""}`}>
-        <Image
-          source={icon}
-          resizeMode="contain"
-          tintColor={color}
-          className="w-5 h-5"
-        />
-      </View>
-      <Text
-        className={`${focused ? "font-psemibold" : "font-pregular"} text-[10px]`}
-        style={{ color: color }}
-      >
-        {name}
-      </Text>
-    </View>
-  );
-};
+import { Entypo, Ionicons, AntDesign, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
+import Octicons from '@expo/vector-icons/Octicons';
 
 const TabLayout = () => {
   const { loading, isLogged } = useGlobalContext();
@@ -153,19 +14,18 @@ const TabLayout = () => {
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: "#3B82F6",
-          tabBarInactiveTintColor: "#666",
-          tabBarShowLabel: false,
           tabBarStyle: {
-            backgroundColor: "#fff",
-            borderTopWidth: 0.5,
-            borderTopColor: "#e5e5e5",
-            height: 95,
-            shadowColor: "#000",
-            shadowOffset: { width: 0, height: -1 },
-            shadowOpacity: 0.1,
-            shadowRadius: 3,
-            elevation: 3,
+            backgroundColor: "white",
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            elevation: 4,
+            shadowOffset: {
+              width:0,
+              height:-0.2,
+            },
+            borderTopWidth: 0,
           },
         }}
       >
@@ -174,14 +34,12 @@ const TabLayout = () => {
           options={{
             title: "Home",
             headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.home}
-                color={color}
-                name="Home"
-                focused={focused}
-              />
-            ),
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Entypo name="home" size={24} color="skyblue" />
+              ) : (
+                <AntDesign name="home" size={24} color="black" />
+              ),
           }}
         />
         <Tabs.Screen
@@ -189,29 +47,24 @@ const TabLayout = () => {
           options={{
             title: "Search",
             headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.search}
-                color={color}
-                name="Search"
-                focused={focused}
-              />
-            ),
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Ionicons name="search-outline" size={24} color="skyblue" />
+              ) : (
+                <Ionicons name="search-outline" size={24} color="black" />
+              ),
           }}
         />
+
         <Tabs.Screen
           name="history"
           options={{
             title: "History",
             headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.plus}
-                color={color}
-                name="History"
-                focused={focused}
-              />
-            ),
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Octicons name="history" size={24} color="skyblue" />) : (
+<Octicons name="history" size={24} color="black" />              ),
           }}
         />
         <Tabs.Screen
@@ -219,14 +72,13 @@ const TabLayout = () => {
           options={{
             title: "Profile",
             headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.profile}
-                color={color}
-                name="Profile"
-                focused={focused}
-              />
-            ),
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <AntDesign name="profile" size={24} color="skyblue" />
+
+              ) : (
+                <AntDesign name="profile" size={24} color="black" />
+              ),
           }}
         />
       </Tabs>
