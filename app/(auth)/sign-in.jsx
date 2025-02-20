@@ -138,7 +138,6 @@ import { Link, router, Redirect } from 'expo-router';
 import { icons, images } from '../../constants';
 import axios from 'axios';
 import { useGlobalContext } from '../../context/GlobalProvider';
-// import { useGlobalContext } from '../../context/GlobalProvider';
 
 const SignIn = () => {
     const [isSubmitting, setSubmitting] = useState(false);
@@ -151,7 +150,7 @@ const SignIn = () => {
 
 
     const handleNavigation = () => {
-        router.push('/profile'); // Navigate to the /profile page
+        router.push('/profile'); 
       };
 
 
@@ -165,25 +164,12 @@ const SignIn = () => {
             password: form.password
         };
     
-        // try {
-        //     setSubmitting(true);
-        //     const res = await axios.post("http://localhost:5002/sign-in", userData);
-        //     console.log("Response Data:", res.data);
-        //     if (res.data.status === "ok") {
-        //         alert("Sign-in successful Welcome back to P & D.");
-        //         console.log("Redirecting to redirecr");
-        //         router.replace('/home');
-        //         // console.log("Redirecting to /home");
-        //     } else {
-        //         console.log("Unexpected response status:", res.data.status);
-        //     }
-        // } 
+       
         try {
             setSubmitting(true);
             const res = await axios.post("http://localhost:5002/sign-in", userData);
             
             if (res.data.status === "ok") {
-              // Store token and update state
               handleLogin(res.data.user, res.data.token);
               alert("Sign-in successful. Welcome back to P & D.");
               router.replace('/home');
@@ -253,10 +239,7 @@ const SignIn = () => {
                                 containerStyles="mt-5"
                                 isLoading={isSubmitting}
                             />
-   {/* <View>
-      <Button title="test" onPress={handleNavigation} />  {/* Trigger navigation on button press */}
-    {/* </View> */} 
-
+  
 
                             {error && (
                                 <Text className="text-red-500 text-center mt-4">{error}</Text>

@@ -26,6 +26,11 @@ import left from "../assets/images/left.png"
 import logop from "../assets/images/logop.png";
 import delivery from "../assets/images/delivery.png";
 
+import createorder from "../assets/images/createorder.png";
+import reportproblem from "../assets/images/reportproblem.png";
+import shippingrate from "../assets/images/shippingrate.png";
+import warehouse from "../assets/images/warehouse.png";
 
 
-export default { delivery,logop,profile,search2,suffle,spotify,spotify2,previous,plus,pause,playing,playbutton,play,left,next,option, thumbnail, cards, path, logo, logoSmall,bgimg,empty,arrowdown,downarrow,homepage };
+
+export default {reportproblem,createorder,warehouse,shippingrate,delivery,logop,profile,search2,suffle,spotify,spotify2,previous,plus,pause,playing,playbutton,play,left,next,option, thumbnail, cards, path, logo, logoSmall,bgimg,empty,arrowdown,downarrow,homepage };

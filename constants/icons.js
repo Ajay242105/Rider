@@ -13,10 +13,17 @@ import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
 import mail from "../assets/icons/mail.png";
 import login from "../assets/icons/login.png";
+import search1 from "../assets/icons/search1.png";
+import history from "../assets/icons/history.png";
+
+import gift from "../assets/icons/gift.png";
 
 
 
 export default {
+  gift,
+  history,
+  search1,
   play,
   bookmark,
   home,
