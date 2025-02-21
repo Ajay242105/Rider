@@ -15,8 +15,8 @@ const TabLayout = () => {
       <Tabs
         screenOptions={{
           tabBarStyle: {
-            backgroundColor: "white",
-            position: "absolute",
+            backgroundColor: "#edf2f7",
+            // position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
